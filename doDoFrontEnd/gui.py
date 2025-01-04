@@ -1,6 +1,13 @@
 import functions
 import FreeSimpleGUI as sg
 import time
+import os
+
+if not os.path.exists("files/todos.txt"):
+    if not os.path.isdir('files'):
+        os.makedirs("files")
+    with open("files/todos.txt",'w') as file:
+        pass
 
 #se puede cambiar de tema de la gui
 sg.theme('black')
@@ -12,6 +19,8 @@ add_button = sg.Button("Add")
 list_box = sg.Listbox(values=functions.get_todos(), key='todos',
                       enable_events=True, size=[45, 10])
 edit_button = sg.Button("Edit")
+#complete_button = sg.Button(key="Complete", size=4, image_source='imgs/complete.png',
+#                            mouseover_colors='LightBlue2', tooltip='Complete')
 complete_button = sg.Button("Complete")
 exit_button = sg.Button("Exit")
 
@@ -66,9 +75,9 @@ while True:
                 sg.popup("Please select an item first.", font=("Helvetica", 20))
         case 'todos':
             window['todo'].update(value=values['todos'][0])
-        case sg.WIN_CLOSED:
-            break
         case "Exit":
+            break
+        case sg.WIN_CLOSED:
             break
 
 window.close()

@@ -12,3 +12,4 @@ def make_archive(filepaths, dest_dir):
 
 if __name__ == '__main__':
     make_archive(filepaths=["files/data.txt","files/hello.txt","bonus1.py","bonus5.py"],dest_dir="files/")
+
