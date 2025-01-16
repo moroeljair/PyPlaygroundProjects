@@ -15,7 +15,12 @@ def write_todos(todos_arg, filepath=FILEPATH):
 
 print(__name__) #es el valor del nombre del archivo, cuando se ejecuta el mismo es '__main__', de otro lado es el nombre
 
+def foo(n1, n2=2, n3=3):
+    r = n1*n2*n3
+    return r
+
 #solo ejecutar cuando se ejecute este archivo y no cuando se importe de otro lado
 if __name__ == '__main__':
     print("hello from functions")
     print(get_todos())
+    print(foo(20,2))
